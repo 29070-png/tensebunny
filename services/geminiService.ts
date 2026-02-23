@@ -2,7 +2,7 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 
 /* Initialize the Gemini client using the environment's API key. */
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: (process.env as any).API_KEY || "" });
 
 export const getGrammarAdvice = async (userMessage: string, history: {role: string, parts: {text: string}[]}[]) => {
   try {

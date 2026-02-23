@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TenseBunny - Pastel English Learning</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: "#FFB7CE", // Sakura Pink
+            secondary: "#FADADD", // Tea Rose
+            accent: "#FFE5B4", // Peach
+            pinky: "#FFD1DC",
+            lavender: "#E0BBE4",
+            background: {
+              light: "#FFF5F7", // Soft Pinky White
+              dark: "#1e1b1c"
+            }
+          },
+          fontFamily: {
+            display: ["Fredoka", "sans-serif"],
+            body: ["Poppins", "sans-serif"]
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'shooting-star': 'shooting 5s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' },
+            },
+            shooting: {
+              '0%': { transform: 'translateX(0) translateY(0) rotate(-45deg)', opacity: '0' },
+              '10%': { opacity: '1' },
+              '30%': { transform: 'translateX(100vw) translateY(100vh) rotate(-45deg)', opacity: '0' },
+              '100%': { transform: 'translateX(100vw) translateY(100vh) rotate(-45deg)', opacity: '0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; overflow-x: hidden; margin: 0; padding: 0; }
+    h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Fredoka', sans-serif; }
+    
+    .text-gradient-pastel {
+      background: linear-gradient(135deg, #FFB7CE 0%, #FFD1DC 50%, #E0BBE4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ดาวตก background - ปรับสีเป็นชมพูขาว */
+    .star-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .shooting-star {
+      position: absolute;
+      top: -10%;
+      left: 10%;
+      width: 150px;
+      height: 2px;
+      background: linear-gradient(90deg, #FFB7CE, transparent);
+      animation: shooting 5s linear infinite;
+    }
+    .shooting-star:nth-child(2) { top: 20%; left: -10%; animation-delay: 2s; }
+    .shooting-star:nth-child(3) { top: -20%; left: 50%; animation-delay: 3.5s; }
+
+    .glass {
+      background: rgba(255, 245, 247, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 183, 206, 0.3);
+    }
+
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Custom highlight selection */
+    ::selection {
+      background: #FFB7CE;
+      color: white;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.42.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-700 dark:text-slate-200 transition-colors duration-300">
+  <!-- ดาวตก Layer -->
+  <div class="star-layer">
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+  </div>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

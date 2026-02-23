@@ -1,0 +1,8 @@
+
+{
+  "name": "TenseBunny",
+  "description": "An interactive English grammar learning platform specializing in the 12 English Tenses with a beautiful pastel bunny theme and AI tutor.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

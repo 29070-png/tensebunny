@@ -63,7 +63,7 @@ const LoginScreen = ({ onLogin, mascotUrl, isGenerating }: { onLogin: (name: str
     <div className="min-h-screen flex items-center justify-center px-4 relative z-10 overflow-hidden">
       <div className="max-w-md w-full bg-white/90 dark:bg-slate-800 p-12 rounded-[4rem] shadow-2xl border-4 border-pinky/20 text-center animate-scale-in">
         <div className="relative mb-6">
-          <img src="./assets/logo.png" className="size-32 mx-auto object-contain mb-4" alt="TenseBunny Logo" />
+          <img src="assets/logo.png" className="size-32 mx-auto object-contain mb-4" alt="TenseBunny Logo" />
         </div>
         <div className="relative mb-10">
           <img src={mascotUrl} className={`size-48 mx-auto object-contain transition-all duration-1000 ${isGenerating ? 'blur-md opacity-30' : 'animate-float'}`} alt="mascot" />

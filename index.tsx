@@ -7,13 +7,19 @@ import App from './App';
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error("Could not find root element to mount to");
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/*" element={<App />} />
-      </Routes>
-    </Router>
-  </React.StrictMode>
-);
+console.log("Starting React render...");
+try {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <Router>
+        <Routes>
+          <Route path="/*" element={<App />} />
+        </Routes>
+      </Router>
+    </React.StrictMode>
+  );
+  console.log("React render called successfully");
+} catch (err) {
+  console.error("React render error:", err);
+}
